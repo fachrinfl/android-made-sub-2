@@ -3,4 +3,8 @@
     <string name="str_movie">映画</string>
     <string name="str_tv">テレビ</string>
     <string name="str_language">テレビ</string>
+
+    <string name="str_toolbar_movie">ムービーの選択</string>
+    <string name="str_toolbar_tv">テレビ番組</string>
+    <string name="str_toolbar_language">言語設定</string>
 </resources>

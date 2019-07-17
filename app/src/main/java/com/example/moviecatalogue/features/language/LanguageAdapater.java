@@ -26,9 +26,11 @@ import io.paperdb.Paper;
 public class LanguageAdapater extends RecyclerView.Adapter<LanguageAdapater.LanguageViewHolder> {
 
     private ArrayList<LanguageModel> listLang;
+    private LanguageFragment languageFragment;
 
-    public LanguageAdapater(ArrayList<LanguageModel> list) {
+    public LanguageAdapater(ArrayList<LanguageModel> list, LanguageFragment languageFragment) {
         this.listLang = list;
+        this.languageFragment = languageFragment;
     }
 
     @NonNull
@@ -52,13 +54,14 @@ public class LanguageAdapater extends RecyclerView.Adapter<LanguageAdapater.Lang
         languageViewHolder.mainItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Paper.book().write("language", languageModel.langCode);
                 if (languageViewHolder.itemView.getContext() instanceof MainActivity) {
-                    Paper.book().write("language", languageModel.langCode);
                     ((MainActivity)languageViewHolder
                             .itemView
                             .getContext())
                             .updateView((String) Paper.book().read("language"));
                 }
+//                languageFragment.updateViewFragment((String) Paper.book().read("language"));
             }
         });
 

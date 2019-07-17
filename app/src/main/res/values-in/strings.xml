@@ -3,4 +3,9 @@
     <string name="str_movie">Film</string>
     <string name="str_tv">Tv</string>
     <string name="str_language">Bahasa</string>
+
+    <string name="str_toolbar_movie">Pilihan Movie</string>
+    <string name="str_toolbar_tv">Acara Tv</string>
+    <string name="str_toolbar_language">Pengaturan Bahasa</string>
+
 </resources>
