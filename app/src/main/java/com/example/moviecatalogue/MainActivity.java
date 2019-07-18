@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Switch;
 
 import com.example.moviecatalogue.features.language.LanguageFragment;
 import com.example.moviecatalogue.features.movie.MovieFragment;
@@ -20,57 +19,12 @@ import com.example.moviecatalogue.helper.LocaleHelper;
 
 import io.paperdb.Paper;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
     BottomNavigationView navigation;
-
-    public BottomNavigationView.OnNavigationItemSelectedListener
-            onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            Fragment fragment;
-            switch (menuItem.getItemId()) {
-                 case R.id.nb_movie:
-                     setToolbarTitle(0);
-                    fragment = new MovieFragment();
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(
-                                    R.id.container_layout,
-                                    fragment,
-                                    fragment.getClass().getSimpleName()
-                            )
-                            .commit();
-                    return true;
-                case R.id.nb_tv:
-                    setToolbarTitle(1);
-                    fragment = new TvFragment();
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(
-                                    R.id.container_layout,
-                                    fragment,
-                                    fragment.getClass().getSimpleName()
-                            )
-                            .commit();
-                    return true;
-                case R.id.nb_language:
-                    setToolbarTitle(2);
-                    fragment = new LanguageFragment();
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(
-                                    R.id.container_layout,
-                                    fragment,
-                                    fragment.getClass().getSimpleName()
-                            )
-                            .commit();
-                    return true;
-            }
-            return false;
-        }
-    };
+    Fragment fragment;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -90,14 +44,21 @@ public class MainActivity extends AppCompatActivity {
         final Resources resources = getBaseContext().getResources();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(resources.getString(R.string.str_toolbar_movie));
         toolbar.setTitleTextColor(getBaseContext().getResources().getColor(R.color.colorTitle));
         setSupportActionBar(toolbar);
 
         navigation = (BottomNavigationView) findViewById(R.id.navigationBottom);
-        navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(this);
+        showFragment(R.id.nb_movie);
 
         updateView((String)Paper.book().read("language"));
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        showFragment(id);
+        return true;
     }
 
     public void updateView(String lang) {
@@ -106,24 +67,33 @@ public class MainActivity extends AppCompatActivity {
         navigation.getMenu().getItem(0).setTitle(resources.getString(R.string.str_movie));
         navigation.getMenu().getItem(1).setTitle(resources.getString(R.string.str_tv));
         navigation.getMenu().getItem(2).setTitle(resources.getString(R.string.str_language));
-        setToolbarTitle(2);
+        showFragment(R.id.nb_language);
     }
 
 
-    private void setToolbarTitle (int position) {
+    private void showFragment (int itemId) {
         Context context = LocaleHelper.setLocale(this, (String)Paper.book().read("language"));
         final Resources resources = context.getResources();
-        switch (position) {
-            case 0:
+        switch (itemId) {
+            case R.id.nb_movie:
                 toolbar.setTitle(resources.getString(R.string.str_toolbar_movie));
+                fragment = new MovieFragment();
               break;
-            case 1:
+            case R.id.nb_tv:
                 toolbar.setTitle(resources.getString(R.string.str_toolbar_tv));
+                fragment = new TvFragment();
               break;
-            case 2:
+            case R.id.nb_language:
                 toolbar.setTitle(resources.getString(R.string.str_toolbar_language));
+                fragment = new LanguageFragment();
               break;
         }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_layout, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
 }

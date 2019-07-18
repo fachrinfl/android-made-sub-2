@@ -4,4 +4,12 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorTitle">#FFFFFF</color>
+
+    <color name="colorTitleToolbar">#ffffff</color>
+
+    <color name="colorBackground">#F9FBFC</color>
+    <color name="colorBackgroundInfo">#f1c40f</color>
+
+    <color name="colorTitleMovie">#2c3e50</color>
+    <color name="colorSynopsisMovie">#dfe6e9</color>
 </resources>
