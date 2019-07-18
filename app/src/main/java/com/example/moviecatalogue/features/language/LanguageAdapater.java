@@ -55,8 +55,11 @@ public class LanguageAdapater extends RecyclerView.Adapter<LanguageAdapater.Lang
                             .itemView
                             .getContext())
                             .updateView((String) Paper.book().read("language"));
+                    ((MainActivity)languageViewHolder
+                            .itemView
+                            .getContext())
+                            .showFragment(R.id.nb_language);
                 }
-//                languageFragment.updateViewFragment((String) Paper.book().read("language"));
             }
         });
 

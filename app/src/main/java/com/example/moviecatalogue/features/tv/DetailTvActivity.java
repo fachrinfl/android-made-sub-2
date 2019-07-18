@@ -1,8 +1,8 @@
-package com.example.moviecatalogue.features.movie;
+package com.example.moviecatalogue.features.tv;
 
-import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.moviecatalogue.R;
 
-public class MovieDetail extends AppCompatActivity {
+public class DetailTvActivity extends AppCompatActivity {
 
     CollapsingToolbarLayout collapsingToolbarLayout;
     Toolbar toolbar;
@@ -24,8 +24,8 @@ public class MovieDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_detail);
-        final MovieModel movieModel = getIntent().getParcelableExtra("DETAIL_MOVIE");
+        setContentView(R.layout.activity_detail_tv);
+        final TvModel tvModel = getIntent().getParcelableExtra("DETAIL_TV");
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,13 +38,13 @@ public class MovieDetail extends AppCompatActivity {
         ivCover = findViewById(R.id.ivTvCover);
 
         Glide.with(this)
-                .load(movieModel.getCover())
+                .load(tvModel.getCover())
                 .apply(new RequestOptions().override(674, 1000))
                 .into(ivCover);
 
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.TextAppearance_MyApp_Title_Expanded);
-        collapsingToolbarLayout.setTitle(movieModel.getTitle());
+        collapsingToolbarLayout.setTitle(tvModel.getTitle());
 
         tvLabelDuration = findViewById(R.id.tvLabelDuration);
         tvLabelRelease = findViewById(R.id.tvLabelRelease);
@@ -54,31 +54,31 @@ public class MovieDetail extends AppCompatActivity {
         tvLabelStars = findViewById(R.id.tvLabelStars);
 
         tvCategory = findViewById(R.id.tvCategory);
-        tvCategory.setText(movieModel.getCategory());
+        tvCategory.setText(tvModel.getCategory());
 
         tvDuration = findViewById(R.id.tvDuration);
-        tvDuration.setText(movieModel.getDuration());
+        tvDuration.setText(tvModel.getDuration());
 
         tvRelease = findViewById(R.id.tvRelease);
-        tvRelease.setText(movieModel.getRelease());
+        tvRelease.setText(tvModel.getRelease());
 
         tvRate = findViewById(R.id.tvRate);
-        tvRate.setText(movieModel.getRate());
+        tvRate.setText(tvModel.getRate());
 
         tvVote = findViewById(R.id.tvVote);
-        tvVote.setText(movieModel.getVote());
+        tvVote.setText(tvModel.getVote());
 
         tvSynopsis = findViewById(R.id.tvSynopsis);
-        tvSynopsis.setText(movieModel.getDescription());
+        tvSynopsis.setText(tvModel.getDescription());
 
         tvDirector = findViewById(R.id.tvDirector);
-        tvDirector.setText(movieModel.getDirector());
+        tvDirector.setText(tvModel.getDirector());
 
         tvWriters = findViewById(R.id.tvWriters);
-        tvWriters.setText(movieModel.getWriters());
+        tvWriters.setText(tvModel.getWriters());
 
         tvStars = findViewById(R.id.tvStars);
-        tvStars.setText(movieModel.getStars());
+        tvStars.setText(tvModel.getStars());
     }
 
     @Override

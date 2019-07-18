@@ -67,11 +67,10 @@ public class MainActivity extends AppCompatActivity
         navigation.getMenu().getItem(0).setTitle(resources.getString(R.string.str_movie));
         navigation.getMenu().getItem(1).setTitle(resources.getString(R.string.str_tv));
         navigation.getMenu().getItem(2).setTitle(resources.getString(R.string.str_language));
-        showFragment(R.id.nb_language);
     }
 
 
-    private void showFragment (int itemId) {
+    public void showFragment (int itemId) {
         Context context = LocaleHelper.setLocale(this, (String)Paper.book().read("language"));
         final Resources resources = context.getResources();
         switch (itemId) {
