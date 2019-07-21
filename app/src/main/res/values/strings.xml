@@ -1,16 +1,15 @@
 <resources>
     <string name="app_name">Movie Catalogue</string>
-    <string name="str_movie">Movie</string>
-    <string name="str_tv">Tv</string>
-    <string name="str_language">Language</string>
+    <string name="str_movie" translatable="false">Movie</string>
+    <string name="str_tv" translatable="false">Tv</string>
+    <string name="str_language" translatable="false">Language</string>
+    <string name="change_language_settings" translatable="false">Language Setting</string>
 
 
-    <string name="str_toolbar_movie">Movie Selection</string>
-    <string name="str_toolbar_tv">Movie Selection</string>
-    <string name="str_toolbar_language">Language Settings</string>
+    <string name="str_toolbar_movie" translatable="false">Movie Selection</string>
+    <string name="str_toolbar_tv" translatable="false">Movie Selection</string>
+    <string name="str_toolbar_language" translatable="false">Language Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc_icon_lang">Icon Lang</string>
 
     <string name="sub_title_toolbar">New Movies (In Theaters)</string>

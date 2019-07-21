@@ -6,12 +6,12 @@ public class LanguageData {
     public static String[][] langData = new String[][]{
             {
                     "English",
-                    "http://flags.fmcdn.net/data/flags/w580/gb.png",
+                    "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png",
                     "en"
             },
             {
                     "Indonesian",
-                    "http://flags.fmcdn.net/data/flags/w580/id.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2000px-Flag_of_Indonesia.svg.png",
                     "in"
             },
             {

@@ -14,20 +14,20 @@ import com.example.moviecatalogue.R;
 
 public class DetailTvActivity extends AppCompatActivity {
 
-    CollapsingToolbarLayout collapsingToolbarLayout;
     Toolbar toolbar;
     ImageView ivCover;
-    TextView tvCategory, tvDuration, tvRelease, tvLabelDuration, tvLabelRelease;
-    TextView tvRate, tvVote, tvLabelSynopsis, tvSynopsis;
-    TextView tvLabelDirector, tvDirector, tvLabelWriters, tvWriters, tvLabelStars, tvStars;
+    TextView tvTitle, tvCategory, tvDuration, tvRelease;
+    TextView tvRate, tvVote, tvSynopsis;
+    TextView tvDirector, tvWriters, tvStars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_tv);
+        setContentView(R.layout.activity_movie_detail);
         final TvModel tvModel = getIntent().getParcelableExtra("DETAIL_TV");
 
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null){
@@ -35,49 +35,41 @@ public class DetailTvActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        ivCover = findViewById(R.id.ivTvCover);
+        ivCover = (ImageView) findViewById(R.id.ivCover);
 
         Glide.with(this)
                 .load(tvModel.getCover())
                 .apply(new RequestOptions().override(674, 1000))
                 .into(ivCover);
 
-        collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
-        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.TextAppearance_MyApp_Title_Expanded);
-        collapsingToolbarLayout.setTitle(tvModel.getTitle());
+        tvTitle = (TextView) findViewById(R.id.tvTitle);
+        tvTitle.setText(tvModel.getTitle());
 
-        tvLabelDuration = findViewById(R.id.tvLabelDuration);
-        tvLabelRelease = findViewById(R.id.tvLabelRelease);
-        tvLabelSynopsis = findViewById(R.id.tvLabelSynopsis);
-        tvLabelDirector = findViewById(R.id.tvLabelDirector);
-        tvLabelWriters = findViewById(R.id.tvLabelWriters);
-        tvLabelStars = findViewById(R.id.tvLabelStars);
-
-        tvCategory = findViewById(R.id.tvCategory);
+        tvCategory = (TextView) findViewById(R.id.tvCategory);
         tvCategory.setText(tvModel.getCategory());
 
-        tvDuration = findViewById(R.id.tvDuration);
-        tvDuration.setText(tvModel.getDuration());
-
-        tvRelease = findViewById(R.id.tvRelease);
-        tvRelease.setText(tvModel.getRelease());
-
-        tvRate = findViewById(R.id.tvRate);
+        tvRate = (TextView) findViewById(R.id.tvRate);
         tvRate.setText(tvModel.getRate());
 
-        tvVote = findViewById(R.id.tvVote);
+        tvVote = (TextView) findViewById(R.id.tvVote);
         tvVote.setText(tvModel.getVote());
 
-        tvSynopsis = findViewById(R.id.tvSynopsis);
+        tvDuration = (TextView) findViewById(R.id.tvDuration);
+        tvDuration.setText(tvModel.getDuration());
+
+        tvRelease = (TextView) findViewById(R.id.tvRelease);
+        tvRelease.setText(tvModel.getRelease());
+
+        tvSynopsis = (TextView) findViewById(R.id.tvSynopsis);
         tvSynopsis.setText(tvModel.getDescription());
 
-        tvDirector = findViewById(R.id.tvDirector);
+        tvDirector = (TextView) findViewById(R.id.tvDirector);
         tvDirector.setText(tvModel.getDirector());
 
-        tvWriters = findViewById(R.id.tvWriters);
+        tvWriters = (TextView) findViewById(R.id.tvWriters);
         tvWriters.setText(tvModel.getWriters());
 
-        tvStars = findViewById(R.id.tvStars);
+        tvStars = (TextView) findViewById(R.id.tvStars);
         tvStars.setText(tvModel.getStars());
     }
 
