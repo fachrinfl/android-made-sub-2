@@ -10,7 +10,6 @@
         android:id="@+id/ivTvCover"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:contentDescription="@string/cover_desc"
         android:scaleType="centerCrop"
         android:src="@drawable/cover"
         app:layout_constraintEnd_toEndOf="parent"

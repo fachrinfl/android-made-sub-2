@@ -10,10 +10,6 @@
     <string name="str_toolbar_tv">Tv Show</string>
     <string name="str_toolbar_language">Language Settings</string>
 
-    <string name="desc_icon_lang">Icon Lang</string>
-
-    <string name="sub_title_toolbar">New Movies (In Theaters)</string>
-    <string name="cover_desc">Image cover movie</string>
     <string name="duration">Duration</string>
     <string name="release">Release</string>
     <string name="synopsis">Synopsis</string>
