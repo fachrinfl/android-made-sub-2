@@ -3,8 +3,6 @@
     <string name="str_movie" translatable="false">Movie</string>
     <string name="str_tv" translatable="false">Tv</string>
     <string name="str_language" translatable="false">Language</string>
-    <string name="change_language_settings" translatable="false">Language Setting</string>
-
 
     <string name="str_toolbar_movie" translatable="false">Movie Selection</string>
     <string name="str_toolbar_tv" translatable="false">Movie Selection</string>

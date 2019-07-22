@@ -23,7 +23,7 @@ public class DetailTvActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_detail);
+        setContentView(R.layout.activity_detail_tv);
         final TvModel tvModel = getIntent().getParcelableExtra("DETAIL_TV");
 
         toolbar = findViewById(R.id.toolbar);

@@ -4,7 +4,6 @@
     <string name="str_movie">Film</string>
     <string name="str_tv">Tv</string>
     <string name="str_language">Bahasa</string>
-    <string name="change_language_settings">Language Setting</string>
 
     <string name="str_toolbar_movie">Pilihan Movie</string>
     <string name="str_toolbar_tv">Acara Tv</string>
