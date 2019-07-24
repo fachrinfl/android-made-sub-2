@@ -8,7 +8,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
         <android.support.v7.widget.Toolbar
@@ -135,24 +135,94 @@
             app:layout_constraintTop_toBottomOf="@+id/tvRate"
             tools:text="52,278" />
 
-        <include
-            android:id="@+id/include_synopsis"
-            layout="@layout/layout_synopsis"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tvLabelSynopsis"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/synopsis"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivCover" />
 
-        <include
-            android:id="@+id/include_info"
-            layout="@layout/layout_info"
+        <TextView
+            android:id="@+id/tvSynopsis"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include_synopsis" />
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelSynopsis"
+            tools:text="@string/synopsis" />
+
+        <TextView
+            android:id="@+id/tvLabelDirector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/director"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSynopsis" />
+
+        <TextView
+            android:id="@+id/tvLabelWriters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="@string/writers"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvLabelDirector"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelDirector"
+            app:layout_constraintTop_toTopOf="@+id/tvLabelDirector" />
+
+        <TextView
+            android:id="@+id/tvDirector"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelDirector"
+            tools:text="@string/director" />
+
+        <TextView
+            android:id="@+id/tvWriters"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvLabelWriters"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelWriters"
+            tools:text="@string/writers" />
+
+        <TextView
+            android:id="@+id/tvLabelStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/stars"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDirector" />
+
+        <TextView
+            android:id="@+id/tvStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelStars"
+            tools:text="@string/stars" />
+
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
